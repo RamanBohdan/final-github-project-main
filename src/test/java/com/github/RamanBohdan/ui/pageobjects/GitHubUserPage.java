@@ -47,8 +47,8 @@ public class GitHubUserPage extends AbstractPage {
         String nameRepository = "RamanBohdan/example";
         searchRepository.sendKeys(nameRepository);
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(By.name(nameRepository))).click().build().perform();
+      //  Actions action = new Actions(driver);
+      //  action.moveToElement(driver.findElement(By.name(nameRepository))).click().build().perform();
         buttonDeleteRepository.click();
         buttonAcceptDeleteRepository.click();
         return this;

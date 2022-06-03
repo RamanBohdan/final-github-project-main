@@ -1,6 +1,5 @@
 package com.github.RamanBohdan.ui.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.github.RamanBohdan.ui.pageobjects.*;
 
@@ -23,10 +22,13 @@ public class GitHubTest extends AbstractTest {
 
      @Test
   public void testDeleteUserRepository() throws InterruptedException {
-         GitHubUserPage userPage = new GitHubHomePage().openPage()
+         GitHubDeleteExampleRepository userPage = new GitHubHomePage().openPage()
                  .clickButtonSingIn()
                  .fillFormAddClickButtonSignIn(userName, userPassword)
-                         .selectFindRepositoryName2(repository);
+                 .clickUserMenuForRepository()
+                 .clickButtonExampleRepository()
+                 .clickDeleteRepository()
+                 .selectFindRepositoryName();
 
     //     Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
 

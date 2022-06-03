@@ -22,7 +22,7 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         String nameRepository = "RamanBohdan/example";
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
-        buttonAcceptDeleteRepository.click();
+       waitForVisibilityOfElement(buttonAcceptDeleteRepository).click();
         return this;
     }
 }
