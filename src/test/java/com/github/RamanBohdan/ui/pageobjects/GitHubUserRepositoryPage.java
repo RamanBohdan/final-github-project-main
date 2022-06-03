@@ -2,6 +2,7 @@ package com.github.RamanBohdan.ui.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -14,9 +15,42 @@ public class GitHubUserRepositoryPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='your-repos-filter']")
     private WebElement searchRepository;
 
-    public CreateNewRepository clickButtonAndCreateRepository() {
+    @FindBy(xpath = "//a[@href='/RamanBohdan/example']")
+    private WebElement inputExampleRepository;
+
+
+    @FindBy(xpath = "//a[@id='settings-tab']")
+    private WebElement buttonSetting;
+    @FindBy(xpath = "//input[@class='form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus']")
+    private WebElement buttonDeleteRepository;
+    @FindBy(xpath = "//div[@class='position-relative']//input[@type='text']")
+    private WebElement inputNameRepositoryFromDelete;
+    @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[1]")
+    private WebElement buttonAcceptDeleteRepository;
+
+
+    public ExampleRepository clickButtonAndCreateRepository() {
         buttonNewRepository.click();
-        return new CreateNewRepository();
+        return new ExampleRepository();
+    }
+
+    public GitHubDeleteExampleRepository clickButtonExampleRepository() {
+        inputExampleRepository.click();
+        return new GitHubDeleteExampleRepository();
+    }
+
+
+    public GitHubUserRepositoryPage clickDeleteRepository() {
+        waitForVisibilityOfElement(buttonSetting).click();
+        return new GitHubUserRepositoryPage();
+    }
+
+    public GitHubUserPage selectFindRepositoryName() {
+        String nameRepository = "RamanBohdan/example";
+        waitForElementToBeClickable(buttonDeleteRepository).sendKeys(nameRepository);
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.xpath(String.format(nameRepository)))).click().build().perform();
+        return new GitHubUserPage();
     }
 
     private List<String> chooseUserRepository(String repository) {

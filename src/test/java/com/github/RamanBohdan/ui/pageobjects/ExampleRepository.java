@@ -11,6 +11,18 @@ public class ExampleRepository extends AbstractPage{
     @FindBy(xpath = "//a[@href='/RamanBohdan/example']")
     private WebElement searchRepository;
 
+    @FindBy(xpath = "//input[@id='repository_name']")
+    private WebElement inputNameRepository;
+    @FindBy(xpath = "//button[@class='btn-primary btn']")
+    private WebElement buttonCreateRepository;
+
+    public ExampleRepository getNewRepository(String nameRepository){
+        inputNameRepository.sendKeys(nameRepository);
+        waitForElementToBeClickable(buttonCreateRepository).click();
+        return new ExampleRepository();
+    }
+
+
     private List<String> chooseUserRepository(String repository) {
         waitForElementToBeClickable(searchRepository).click();
         String nameInResult = "//a[@href='/RamanBohdan/example']";
