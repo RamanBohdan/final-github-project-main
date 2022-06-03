@@ -1,14 +1,13 @@
 package com.github.RamanBohdan.ui.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GitHubChoosePage extends AbstractPage{
+public class GitHubChoosePage extends AbstractPage {
 
     @FindBy(xpath = "//li[@class='repo-list-item hx_hit-repo d-flex flex-justify-start py-4 public source']")
     private WebElement searchUserRepository;

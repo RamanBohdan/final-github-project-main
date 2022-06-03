@@ -15,6 +15,7 @@ public class AbstractPage {
     protected static final Logger logger = LogManager.getLogger();
     protected WebDriver driver;
     public final int WAIT_TIMEOUT_SECONDS = 10;
+
     protected WebElement waitForVisibilityOfElement(WebElement webElement) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                 .visibilityOf(webElement));

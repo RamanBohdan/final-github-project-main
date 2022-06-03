@@ -41,6 +41,6 @@ public class GitHubTest extends AbstractTest {
                 .clickDeleteRepository()
                 .selectFindRepositoryName();
 
-        Assert.assertFalse(userPage.isAnyResultContainsRepositoryName(nameRepository));
+        Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(nameRepository));
     }
 }

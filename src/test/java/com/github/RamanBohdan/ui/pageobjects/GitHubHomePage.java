@@ -1,12 +1,8 @@
 package com.github.RamanBohdan.ui.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class GitHubHomePage extends AbstractPage {
 
@@ -14,7 +10,6 @@ public class GitHubHomePage extends AbstractPage {
     private WebElement buttonSingIn;
     @FindBy(xpath = "//input[@name='q']")
     private WebElement searchUserRepository;
-
 
     public GitHubHomePage openPage() {
         String BASE_URL = "https://github.com/";

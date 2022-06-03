@@ -3,7 +3,6 @@ package com.github.RamanBohdan.ui.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,10 +16,8 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
     private WebElement inputNameRepositoryFromDelete;
     @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[2]")
     private WebElement buttonAcceptDeleteRepository;
-
     @FindBy(xpath = "//input[@id='dashboard-repos-filter-left']")
     private WebElement searchRepository;
-
 
     public GitHubDeleteExampleRepository clickDeleteRepository() {
         waitForVisibilityOfElement(buttonSetting).click();
