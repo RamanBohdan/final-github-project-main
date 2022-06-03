@@ -31,13 +31,13 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         String nameRepository = "RamanBohdan/example";
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
-      buttonAcceptDeleteRepository.click();
+        buttonAcceptDeleteRepository.click();
         return this;
     }
 
     public GitHubDeleteExampleRepository getChooseRepository(String repository) {
         searchRepository.click();
-      waitForElementToBeClickable(searchRepository);
+        waitForElementToBeClickable(searchRepository);
         String selectChooseRepo = "(//div[@class='region-selection'])[1]";
         List<WebElement> chooseRepo = driver.findElements(By.xpath(selectChooseRepo));
         for (WebElement repo : chooseRepo) {
@@ -57,6 +57,7 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
                 .collect(Collectors.toList());
         return name;
     }
+
     public boolean isAnyResultContainsRepositoryName(String repository) {
         List<String> searchInResult = (List<String>) getChooseRepository(repository);
         return searchInResult.stream().anyMatch(repo -> repo.contains(repository));

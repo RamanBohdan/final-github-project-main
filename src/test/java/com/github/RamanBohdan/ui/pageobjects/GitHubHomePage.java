@@ -34,16 +34,10 @@ public class GitHubHomePage extends AbstractPage {
         return new ExampleRepository();
     }
 
-    private List<String> chooseUserRepository(String repository) {
+    public GitHubChoosePage getChooseUserRepository() {
         waitForElementToBeClickable(searchUserRepository).click();
-        String nameInResult = "//input[@id='your-repos-filter']";
-        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
-        return name;
+        searchUserRepository.sendKeys("RamanBohdan/final-github-project-main" + Keys.ENTER);
+        return new GitHubChoosePage();
     }
-    public boolean isAnyResultContainsRepositoryName(String repository) {
-        List<String> searchInResult =  chooseUserRepository(repository);
-        return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
-    }
+
 }

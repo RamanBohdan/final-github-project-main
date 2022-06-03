@@ -10,7 +10,7 @@ public class GitHubTest extends AbstractTest {
     private static final String nameRepository = "example";
     private static final String repository = "RamanBohdan/final-github-project-main";
 
-    @Test
+    @Test(priority = 1)
     public void testSignInUserAndCreateNewRepository() {
         ExampleRepository userPage = new GitHubHomePage().openPage()
                 .clickButtonSingIn()
@@ -22,14 +22,16 @@ public class GitHubTest extends AbstractTest {
         Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(nameRepository));
     }
 
-    @Test
+    @Test(priority = 2)
     public void testChooseUserRepository() {
-        GitHubHomePage userPage = new GitHubHomePage().openPage();
+        GitHubChoosePage userPage = new GitHubHomePage()
+                .openPage()
+                .getChooseUserRepository();
 
         Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
     }
 
-    @Test
+    @Test(priority = 3)
     public void testDeleteUserRepository() throws InterruptedException {
         GitHubDeleteExampleRepository userPage = new GitHubHomePage().openPage()
                 .clickButtonSingIn()
@@ -41,5 +43,4 @@ public class GitHubTest extends AbstractTest {
 
         Assert.assertFalse(userPage.isAnyResultContainsRepositoryName(nameRepository));
     }
-
 }
