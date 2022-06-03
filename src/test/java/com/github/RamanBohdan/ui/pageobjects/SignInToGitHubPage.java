@@ -15,14 +15,14 @@ public class SignInToGitHubPage extends AbstractPage{
     public SignInToGitHubPage fillLoginUser(String userName) {
         inputLogin.clear();
         inputLogin.sendKeys(userName);
-        logger.info("Type userName " + userName);
+        logger.info("Type userName: " + userName);
         return this;
     }
 
     public SignInToGitHubPage fillPasswordUser(String userPassword) {
         inputPassword.clear();
         inputPassword.sendKeys(userPassword);
-        logger.info("Type userPassword " + userPassword);
+        logger.info("Type userPassword: " + userPassword);
         return this;
     }
 

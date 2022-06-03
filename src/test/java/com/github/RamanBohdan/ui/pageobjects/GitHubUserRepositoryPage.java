@@ -12,14 +12,14 @@ public class GitHubUserRepositoryPage extends AbstractPage {
     @FindBy(xpath = "//a[@id='settings-tab']")
     private WebElement buttonSetting;
 
-    public ExampleRepository clickButtonAndCreateRepository() {
+    public CreateNewGitHubRepository clickButtonAndCreateRepository() {
         buttonNewRepository.click();
-        return new ExampleRepository();
+        return new CreateNewGitHubRepository();
     }
 
-    public GitHubDeleteExampleRepository clickButtonExampleRepository() {
+    public DeleteGitHubRepository clickButtonExampleRepository() {
         inputExampleRepository.click();
-        return new GitHubDeleteExampleRepository();
+        return new DeleteGitHubRepository();
     }
 
     public GitHubUserRepositoryPage clickDeleteRepository() {

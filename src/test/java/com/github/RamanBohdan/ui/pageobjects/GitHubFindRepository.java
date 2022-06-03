@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GitHubChoosePage extends AbstractPage {
+public class GitHubFindRepository extends AbstractPage {
 
     @FindBy(xpath = "//li[@class='repo-list-item hx_hit-repo d-flex flex-justify-start py-4 public source']")
     private WebElement searchUserRepository;

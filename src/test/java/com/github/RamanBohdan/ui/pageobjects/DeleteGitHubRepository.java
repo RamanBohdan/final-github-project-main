@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GitHubDeleteExampleRepository extends AbstractPage {
+public class DeleteGitHubRepository extends AbstractPage {
     @FindBy(xpath = "//a[@id='settings-tab']")
     private WebElement buttonSetting;
     @FindBy(xpath = "//details[@class='details-reset details-overlay details-overlay-dark flex-md-order-1 flex-order-2']//summary")
@@ -19,12 +19,12 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
     @FindBy(xpath = "//input[@id='dashboard-repos-filter-left']")
     private WebElement searchRepository;
 
-    public GitHubDeleteExampleRepository clickDeleteRepository() {
+    public DeleteGitHubRepository clickDeleteRepository() {
         waitForVisibilityOfElement(buttonSetting).click();
         return this;
     }
 
-    public GitHubDeleteExampleRepository selectFindRepositoryName() {
+    public DeleteGitHubRepository selectFindRepositoryName() {
         String nameRepository = "RamanBohdan/example";
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
@@ -32,7 +32,7 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         return this;
     }
 
-    public GitHubDeleteExampleRepository getChooseRepository(String repository) {
+    public DeleteGitHubRepository getChooseRepository(String repository) {
         searchRepository.click();
         waitForElementToBeClickable(searchRepository);
         String selectChooseRepo = "(//div[@class='region-selection'])[1]";

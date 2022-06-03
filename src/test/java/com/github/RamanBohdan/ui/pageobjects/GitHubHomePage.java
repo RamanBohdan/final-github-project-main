@@ -22,17 +22,17 @@ public class GitHubHomePage extends AbstractPage {
         return new SignInToGitHubPage();
     }
 
-    public ExampleRepository getUserRepository() {
+    public CreateNewGitHubRepository getUserRepository() {
         searchUserRepository.sendKeys("RamanBohdan/example" + Keys.ENTER);
 
 
-        return new ExampleRepository();
+        return new CreateNewGitHubRepository();
     }
 
-    public GitHubChoosePage getChooseUserRepository() {
+    public GitHubFindRepository getChooseUserRepository() {
         waitForElementToBeClickable(searchUserRepository).click();
         searchUserRepository.sendKeys("RamanBohdan/final-github-project-main" + Keys.ENTER);
-        return new GitHubChoosePage();
+        return new GitHubFindRepository();
     }
 
 }

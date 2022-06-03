@@ -12,7 +12,7 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 1)
     public void testSignInUserAndCreateNewRepository() {
-        ExampleRepository userPage = new GitHubHomePage().openPage()
+        CreateNewGitHubRepository userPage = new GitHubHomePage().openPage()
                 .clickButtonSingIn()
                 .fillFormAddClickButtonSignIn(userName, userPassword)
                 .clickUserMenuForRepository()
@@ -24,7 +24,7 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 2)
     public void testChooseUserRepository() {
-        GitHubChoosePage userPage = new GitHubHomePage()
+        GitHubFindRepository userPage = new GitHubHomePage()
                 .openPage()
                 .getChooseUserRepository();
 
@@ -33,7 +33,7 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 3)
     public void testDeleteUserRepository() throws InterruptedException {
-        GitHubDeleteExampleRepository userPage = new GitHubHomePage().openPage()
+        DeleteGitHubRepository userPage = new GitHubHomePage().openPage()
                 .clickButtonSingIn()
                 .fillFormAddClickButtonSignIn(userName, userPassword)
                 .clickUserMenuForRepository()
