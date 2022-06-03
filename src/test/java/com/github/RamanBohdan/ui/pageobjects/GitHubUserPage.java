@@ -38,22 +38,6 @@ public class GitHubUserPage extends AbstractPage {
         return new GitHubUserRepositoryPage();
     }
 
-    public GitHubUserRepositoryPage clickDeleteRepository() {
-        waitForVisibilityOfElement(buttonSetting).click();
-        return new GitHubUserRepositoryPage();
-    }
-
-    public GitHubUserPage selectFindRepositoryName() {
-        String nameRepository = "RamanBohdan/example";
-        searchRepository.sendKeys(nameRepository);
-        inputNameRepositoryFromDelete.sendKeys(nameRepository);
-      //  Actions action = new Actions(driver);
-      //  action.moveToElement(driver.findElement(By.name(nameRepository))).click().build().perform();
-        buttonDeleteRepository.click();
-        buttonAcceptDeleteRepository.click();
-        return this;
-    }
-
   /*  public GitHubUserPage selectFindRepositoryName2(String repository) {
         Actions action = new Actions(driver);
         String selectChooseRepo = "//input[@id='dashboard-repos-filter-left']";

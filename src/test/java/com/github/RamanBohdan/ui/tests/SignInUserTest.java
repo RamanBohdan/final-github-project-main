@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 public class SignInUserTest extends AbstractTest {
     private static final String userName = "RamanBohdan";
     private static final String userPassword = "wmckJiMqCZ1";
-    @Test
+
+    @Test(enabled = false)
     public void testSignInUser() {
         SignInStep signInSteps = new SignInStep();
         signInSteps.openSignInForm();

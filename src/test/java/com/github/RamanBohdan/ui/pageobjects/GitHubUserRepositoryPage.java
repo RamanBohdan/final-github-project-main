@@ -45,26 +45,13 @@ public class GitHubUserRepositoryPage extends AbstractPage {
         return new GitHubUserRepositoryPage();
     }
 
-    public GitHubUserPage selectFindRepositoryName() {
+  /*  public GitHubUserPage selectFindRepositoryName() {
         String nameRepository = "RamanBohdan/example";
         waitForElementToBeClickable(buttonDeleteRepository).sendKeys(nameRepository);
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(By.xpath(String.format(nameRepository)))).click().build().perform();
         return new GitHubUserPage();
-    }
-
-    private List<String> chooseUserRepository(String repository) {
-        waitForElementToBeClickable(searchRepository).click();
-        String nameInResult = "//input[@id='your-repos-filter']";
-        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
-        return name;
-    }
-    public boolean isAnyResultContainsRepositoryName(String repository) {
-        List<String> regionsInResult = chooseUserRepository(repository);
-        return regionsInResult.stream().anyMatch(region -> region.contains(repository));
-    }
+    }*/
 
   /*  public GitHubUserRepositoryPage chooseUserRepository(String repository) {
         searchRepository.click();

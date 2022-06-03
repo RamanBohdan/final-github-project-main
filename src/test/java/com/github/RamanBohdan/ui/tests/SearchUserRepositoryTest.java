@@ -8,7 +8,7 @@ public class SearchUserRepositoryTest extends AbstractTest {
 
     private static String nameRepository = "RamanBohdan/example";
 
-    @Test
+    @Test(enabled = false)
     private void testSearchUserRepository(){
         ExampleRepository homePage = new GitHubHomePage()
                 .openPage()

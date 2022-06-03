@@ -1,5 +1,6 @@
 package com.github.RamanBohdan.ui.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.github.RamanBohdan.ui.pageobjects.*;
 
@@ -30,8 +31,7 @@ public class GitHubTest extends AbstractTest {
                  .clickDeleteRepository()
                  .selectFindRepositoryName();
 
-    //     Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
-
+         Assert.assertFalse(userPage.isAnyResultContainsRepositoryName(nameRepository));
      }
 
     @Test
