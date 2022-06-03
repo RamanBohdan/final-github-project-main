@@ -12,17 +12,17 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
     private WebElement inputNameRepositoryFromDelete;
     @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[2]")
     private WebElement buttonAcceptDeleteRepository;
-    private String nameRepository= "RamanBohdan/example";
 
-    public GitHubDeleteExampleRepository clickDeleteRepository(){
+    public GitHubDeleteExampleRepository clickDeleteRepository() {
         waitForVisibilityOfElement(buttonSetting).click();
         return this;
     }
 
-        public GitHubUserPage selectFindRepositoryName(){
+    public GitHubDeleteExampleRepository selectFindRepositoryName() {
+        String nameRepository = "RamanBohdan/example";
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
         buttonAcceptDeleteRepository.click();
-        return new GitHubUserPage();
+        return this;
     }
 }

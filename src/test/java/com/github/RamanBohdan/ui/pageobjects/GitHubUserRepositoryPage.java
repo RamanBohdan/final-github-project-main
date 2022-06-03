@@ -80,12 +80,4 @@ public class GitHubUserRepositoryPage extends AbstractPage {
         return this;
     }*/
 
-   /* public GitHubUserRepositoryPage chooseUserRepository1(String nameRepository) {
-        waitForVisibilityOfElement(searchRepository);
-        waitForVisibilityOfElement(searchRepository).sendKeys(nameRepository);
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(By.xpath(String.format(nameRepository)))).click().build().perform();
-        return this;
-    }*/
-
 }
