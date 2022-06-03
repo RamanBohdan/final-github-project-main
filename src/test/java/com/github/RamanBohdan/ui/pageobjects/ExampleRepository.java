@@ -33,7 +33,7 @@ public class ExampleRepository extends AbstractPage{
     }
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
-        List<String> regionsInResult = chooseUserRepository(repository);
-        return regionsInResult.stream().anyMatch(region -> region.contains(repository));
+        List<String> repoInResult = chooseUserRepository(repository);
+        return repoInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }

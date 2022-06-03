@@ -3,6 +3,7 @@ package com.github.RamanBohdan.ui.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +17,6 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
     private WebElement inputNameRepositoryFromDelete;
     @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[2]")
     private WebElement buttonAcceptDeleteRepository;
-
 
     @FindBy(xpath = "//input[@id='dashboard-repos-filter-left']")
     private WebElement searchRepository;
@@ -35,6 +35,20 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         return this;
     }
 
+    public GitHubDeleteExampleRepository getChooseRepository(String repository) {
+        searchRepository.click();
+      waitForElementToBeClickable(searchRepository);
+        String selectChooseRepo = "(//div[@class='region-selection'])[1]";
+        List<WebElement> chooseRepo = driver.findElements(By.xpath(selectChooseRepo));
+        for (WebElement repo : chooseRepo) {
+            if (repository.equals(repo.getText().trim())) {
+                repo.click();
+                break;
+            }
+        }
+        return this;
+    }
+
     private List<String> chooseUserRepository(String repository) {
         waitForElementToBeClickable(searchRepository).click();
         String nameInResult = "//input[@id='your-repos-filter']";
@@ -44,7 +58,7 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         return name;
     }
     public boolean isAnyResultContainsRepositoryName(String repository) {
-        List<String> searchInResult = chooseUserRepository(repository);
+        List<String> searchInResult = (List<String>) getChooseRepository(repository);
         return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }

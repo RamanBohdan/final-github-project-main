@@ -1,15 +1,20 @@
 package com.github.RamanBohdan.ui.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GitHubHomePage extends AbstractPage {
 
     @FindBy(xpath = "//a[@href='/login']")
     private WebElement buttonSingIn;
-    @FindBy(xpath = "//input[@class='form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus']")
+    @FindBy(xpath = "//input[@name='q']")
     private WebElement searchUserRepository;
+
 
     public GitHubHomePage openPage() {
         String BASE_URL = "https://github.com/";
@@ -27,5 +32,18 @@ public class GitHubHomePage extends AbstractPage {
 
 
         return new ExampleRepository();
+    }
+
+    private List<String> chooseUserRepository(String repository) {
+        waitForElementToBeClickable(searchUserRepository).click();
+        String nameInResult = "//input[@id='your-repos-filter']";
+        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        return name;
+    }
+    public boolean isAnyResultContainsRepositoryName(String repository) {
+        List<String> searchInResult =  chooseUserRepository(repository);
+        return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }
