@@ -1,8 +1,6 @@
 package com.github.RamanBohdan.ui.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class GitHubDeleteExampleRepository extends AbstractPage {
@@ -10,9 +8,9 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
     private WebElement buttonSetting;
     @FindBy(xpath = "//details[@class='details-reset details-overlay details-overlay-dark flex-md-order-1 flex-order-2']//summary")
     private WebElement buttonDeleteRepository;
-    @FindBy(xpath = "//div[@class='position-relative']//input[@type='text']")
+    @FindBy(xpath = "(//input[@class='form-control input-block'])[4]")
     private WebElement inputNameRepositoryFromDelete;
-    @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[1]")
+    @FindBy(xpath = "(//span[@class='d-md-inline-block d-none'])[2]")
     private WebElement buttonAcceptDeleteRepository;
     private String nameRepository= "RamanBohdan/example";
 
@@ -21,14 +19,10 @@ public class GitHubDeleteExampleRepository extends AbstractPage {
         return this;
     }
 
-        public GitHubDeleteExampleRepository selectFindRepositoryName(){
+        public GitHubUserPage selectFindRepositoryName(){
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
         buttonAcceptDeleteRepository.click();
-
-      //  waitForElementToBeClickable(buttonDeleteRepository).sendKeys(nameRepository);
-      //  Actions action = new Actions(driver);
-      //  action.moveToElement(driver.findElement(By.xpath(String.format(nameRepository)))).click().build().perform();
-        return this;
+        return new GitHubUserPage();
     }
 }
