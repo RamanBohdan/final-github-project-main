@@ -5,9 +5,14 @@ import org.testng.annotations.DataProvider;
 
 public class SignInDataProvider extends AbstractPage {
 
-    @DataProvider(name = "loginInCorrectValues")
-    public Object[] provideLoginInCorrectValues(String userName, String userPassword){
-        return new Object[]{"100", "49", "-118", "301", "4545656", "абв", "/.."};
+    @DataProvider(name = "loginInCorrectUserName")
+    public Object[][] testProvideLoginInCorrectUserName() {
+        return new Object[][]{{"100"}, {"-1000"}, {"Hello"}, {"Boss"}, {"$#@!"}};
+    }
+
+    @DataProvider(name = "loginInCorrectUserPassword")
+    public Object[][] testProvideLoginInCorrectUserPassword() {
+        return new Object[][]{{"1234567890"}, {"password"}, {"HelloWord"}, {"*******"}, {"$#@!"}};
     }
 
 }
