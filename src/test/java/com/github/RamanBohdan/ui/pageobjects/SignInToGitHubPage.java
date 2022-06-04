@@ -11,6 +11,12 @@ public class SignInToGitHubPage extends AbstractPage{
     private WebElement inputPassword;
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement buttonSignIn;
+    @FindBy(xpath = "//span[@itemprop='additionalName']")
+    private WebElement titleAvatarUser;
+
+    public String getTitleAvatarUser() {
+        return titleAvatarUser.getText();
+    }
 
     public SignInToGitHubPage fillLoginUser(String userName) {
         inputLogin.clear();

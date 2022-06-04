@@ -16,7 +16,6 @@ public class GitHubUserPage extends AbstractPage {
     public static final String USER_NAME = "RamanBohdan";
     public static final String ERROR_MASSAGE_USER = "Incorrect username or password.";
     public static final String ERROR_MASSAGE_PASSWORD = "There have been several failed attempts to sign in from this account or IP address. Please wait a while and try again later.";
-    public static final String ERROR_MASSAGE_USER_AND_PASSWORD = "Incorrect username or password.";
 
     public GitHubUserRepositoryPage clickUserMenuForRepository() {
         waitForVisibilityOfElement(selectUserMenu).click();
@@ -30,9 +29,5 @@ public class GitHubUserPage extends AbstractPage {
 
     public String getTitleErrorMassagePassword(){
         return titleErrorMassagePassword.getText();
-    }
-
-    public String getTitleErrorMassageNameAndPassword(){
-        return titleErrorMassageUser.getText();
     }
 }

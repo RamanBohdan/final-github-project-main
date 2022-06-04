@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CreateNewGitHubRepository extends AbstractPage {
-    @FindBy(xpath = "//a[@href='/RamanBohdan/example']")
-    private WebElement searchRepository;
+
     @FindBy(xpath = "//input[@id='repository_name']")
     private WebElement inputNameRepository;
     @FindBy(xpath = "//button[@class='btn-primary btn']")
     private WebElement buttonCreateRepository;
+    @FindBy(xpath = "//a[@href='/RamanBohdan/example']")
+    private WebElement searchRepository;
 
     public CreateNewGitHubRepository getNewRepository(String nameRepository) {
         inputNameRepository.sendKeys(nameRepository);
@@ -24,11 +25,11 @@ public class CreateNewGitHubRepository extends AbstractPage {
     private List<String> chooseUserRepository(String repository) {
         waitForElementToBeClickable(searchRepository).click();
         String nameInResult = "//a[@href='/RamanBohdan/example']";
-        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
+        List<String> nameRepository = driver.findElements(By.xpath(nameInResult)).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
-        logger.info("name: "+ name);
-        return name;
+        logger.info("nameRepository: "+ nameRepository);
+        return nameRepository;
     }
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
@@ -37,4 +38,5 @@ public class CreateNewGitHubRepository extends AbstractPage {
         logger.info(repoInResult.stream().anyMatch(repo -> repo.contains(repository)));
         return repoInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
+
 }

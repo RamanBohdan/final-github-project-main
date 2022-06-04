@@ -1,38 +1,30 @@
 package com.github.RamanBohdan.ui.tests;
 
+import com.github.RamanBohdan.ui.steps.CreateNewGitRepositoryStep;
+import com.github.RamanBohdan.ui.steps.SignInStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.github.RamanBohdan.ui.pageobjects.*;
 
 public class GitHubTest extends AbstractTest {
 
-    private static final String userName = "RamanBohdan";
-    private static final String userPassword = "wmckJiMqCZ1";
-    private static final String nameRepository = "example";
     private static final String repository = "RamanBohdan/final-github-project-main";
-
+    private static final String nameRepository = "example";
 
     @Test(priority = 1)
     public void testSignInUser() {
-        GitHubUserRepositoryPage userPage = new GitHubHomePage().openPage()
-                .clickButtonSingIn()
-                .fillFormAddClickButtonSignIn(userName, userPassword)
-                .clickUserMenuForRepository();
+        SignInStep sign = new SignInStep();
+        SignInStep.SignInAccountStep();
 
-        Assert.assertEquals(userPage.getTitleAvatarUser(),GitHubUserPage.USER_NAME);
+        Assert.assertEquals(sign.getTitleAvatarUser(), GitHubUserPage.USER_NAME);
     }
-
 
     @Test(priority = 2)
     public void testSignInUserAndCreateNewRepository() {
-        CreateNewGitHubRepository userPage = new GitHubHomePage().openPage()
-                .clickButtonSingIn()
-                .fillFormAddClickButtonSignIn(userName, userPassword)
-                .clickUserMenuForRepository()
-                .clickButtonAndCreateRepository()
-                .getNewRepository(nameRepository);
+        CreateNewGitHubRepository createNewGitHubRepository = new CreateNewGitHubRepository();
+        CreateNewGitRepositoryStep.CreateRepositoryStep();
 
-        Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(nameRepository));
+        Assert.assertTrue(createNewGitHubRepository.isAnyResultContainsRepositoryName(nameRepository));
     }
 
     @Test(priority = 3)
@@ -57,5 +49,5 @@ public class GitHubTest extends AbstractTest {
         Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(nameRepository));
     }
     */ // TODO: 04.06.2022  
-    
+
 }
