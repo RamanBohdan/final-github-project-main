@@ -27,11 +27,14 @@ public class CreateNewGitHubRepository extends AbstractPage {
         List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
+        logger.info("name: "+ name);
         return name;
     }
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
         List<String> repoInResult = chooseUserRepository(repository);
+        logger.info("isAnyResultContainsRepositoryName");
+        logger.info(repoInResult.stream().anyMatch(repo -> repo.contains(repository)));
         return repoInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }

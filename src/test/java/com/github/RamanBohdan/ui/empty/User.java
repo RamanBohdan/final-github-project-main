@@ -1,4 +1,4 @@
-package com.github.RamanBohdan.empty;
+package com.github.RamanBohdan.ui.empty;
 
 public class User {
     private String username;

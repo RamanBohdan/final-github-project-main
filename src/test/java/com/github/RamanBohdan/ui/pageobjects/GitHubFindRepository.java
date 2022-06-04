@@ -23,6 +23,8 @@ public class GitHubFindRepository extends AbstractPage {
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
         List<String> searchInResult = chooseUserRepository(repository);
+        logger.info("isAnyResultContainsRepositoryName");
+        logger.info(searchInResult.stream().anyMatch(repo -> repo.contains(repository)));
         return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }

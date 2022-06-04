@@ -24,8 +24,6 @@ public class GitHubHomePage extends AbstractPage {
 
     public CreateNewGitHubRepository getUserRepository() {
         searchUserRepository.sendKeys("RamanBohdan/example" + Keys.ENTER);
-
-
         return new CreateNewGitHubRepository();
     }
 

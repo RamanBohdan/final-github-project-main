@@ -11,6 +11,12 @@ public class GitHubUserRepositoryPage extends AbstractPage {
     private WebElement inputExampleRepository;
     @FindBy(xpath = "//a[@id='settings-tab']")
     private WebElement buttonSetting;
+    @FindBy(xpath = "//span[@itemprop='additionalName']")
+    private WebElement titleAvatarUser;
+
+    public String getTitleAvatarUser() {
+        return titleAvatarUser.getText();
+    }
 
     public CreateNewGitHubRepository clickButtonAndCreateRepository() {
         buttonNewRepository.click();
@@ -20,11 +26,6 @@ public class GitHubUserRepositoryPage extends AbstractPage {
     public DeleteGitHubRepository clickButtonExampleRepository() {
         inputExampleRepository.click();
         return new DeleteGitHubRepository();
-    }
-
-    public GitHubUserRepositoryPage clickDeleteRepository() {
-        waitForVisibilityOfElement(buttonSetting).click();
-        return new GitHubUserRepositoryPage();
     }
 
 }

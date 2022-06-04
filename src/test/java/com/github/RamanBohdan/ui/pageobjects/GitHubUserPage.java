@@ -8,6 +8,7 @@ public class GitHubUserPage extends AbstractPage {
     private WebElement selectUserMenu;
     @FindBy(xpath = "//a[text()='Your repositories']")
     private WebElement inputUserRepository;
+    public static final String USER_NAME = "RamanBohdan";
 
     public GitHubUserRepositoryPage clickUserMenuForRepository() {
         waitForVisibilityOfElement(selectUserMenu).click();

@@ -46,17 +46,10 @@ public class DeleteGitHubRepository extends AbstractPage {
         return this;
     }
 
-    private List<String> chooseUserRepository(String repository) {
-        waitForElementToBeClickable(searchRepository).click();
-        String nameInResult = "//input[@id='your-repos-filter']";
-        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
-        return name;
-    }
-
     public boolean isAnyResultContainsRepositoryName(String repository) {
         List<String> searchInResult = (List<String>) getChooseRepository(repository);
+        logger.info("isAnyResultContainsRepositoryName");
+        logger.info(searchInResult.stream().anyMatch(repo -> repo.contains(repository)));
         return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }
