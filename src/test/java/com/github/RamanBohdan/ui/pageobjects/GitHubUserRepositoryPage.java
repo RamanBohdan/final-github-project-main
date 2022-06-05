@@ -1,5 +1,6 @@
 package com.github.RamanBohdan.ui.pageobjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,8 +10,9 @@ public class GitHubUserRepositoryPage extends AbstractPage {
     private WebElement buttonNewRepository;
     @FindBy(xpath = "//a[@href='/RamanBohdan/example']")
     private WebElement inputExampleRepository;
-    @FindBy(xpath = "//a[@id='settings-tab']")
-    private WebElement buttonSetting;
+    @FindBy(xpath = "//input[@id='your-repos-filter']")
+    private WebElement searchRepository;
+
 
     public CreateNewGitHubRepository clickButtonAndCreateRepository() {
         buttonNewRepository.click();
@@ -22,4 +24,11 @@ public class GitHubUserRepositoryPage extends AbstractPage {
         return new DeleteGitHubRepository();
     }
 
+    public GitHubFindRepository getChooserRepository() {
+        waitForElementToBeClickable(searchRepository).click();
+        searchRepository.sendKeys("example" + Keys.ENTER);
+        return new GitHubFindRepository();
+    }
+
 }
+

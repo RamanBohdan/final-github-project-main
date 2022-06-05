@@ -1,6 +1,5 @@
 package com.github.RamanBohdan.ui.steps;
-import com.github.RamanBohdan.ui.empty.User;
-import com.github.RamanBohdan.ui.pageobjects.CreateNewGitHubRepository;
+import com.github.RamanBohdan.ui.entity.User;
 import com.github.RamanBohdan.ui.pageobjects.GitHubHomePage;
 import com.github.RamanBohdan.ui.pageobjects.SignInToGitHubPage;
 import com.github.RamanBohdan.ui.utils.UserCreator;

@@ -32,24 +32,20 @@ public class DeleteGitHubRepository extends AbstractPage {
         return this;
     }
 
-    public DeleteGitHubRepository getChooseRepository(String repository) {
-        searchRepository.click();
-        waitForElementToBeClickable(searchRepository);
-        String selectChooseRepo = "(//div[@class='region-selection'])[1]";
-        List<WebElement> chooseRepo = driver.findElements(By.xpath(selectChooseRepo));
-        for (WebElement repo : chooseRepo) {
-            if (repository.equals(repo.getText().trim())) {
-                repo.click();
-                break;
-            }
-        }
-        return this;
+    private List<String> chooseUserRepository(String repository) {
+        waitForElementToBeClickable(searchRepository).click();
+        String nameInResult = "//a[@href='/RamanBohdan/example']";
+        List<String> nameRepository = driver.findElements(By.xpath(nameInResult)).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        logger.info("nameRepository: "+ nameRepository);
+        return nameRepository;
     }
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
-        List<String> searchInResult = (List<String>) getChooseRepository(repository);
+        List<String> repoInResult = chooseUserRepository(repository);
         logger.info("isAnyResultContainsRepositoryName");
-        logger.info(searchInResult.stream().anyMatch(repo -> repo.contains(repository)));
-        return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
+        logger.info(repoInResult.stream().anyMatch(repo -> repo.contains(repository)));
+        return repoInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 }

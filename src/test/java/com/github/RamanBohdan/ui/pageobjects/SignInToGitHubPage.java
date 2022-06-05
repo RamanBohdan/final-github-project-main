@@ -36,12 +36,6 @@ public class SignInToGitHubPage extends AbstractPage{
         return this;
     }
 
-    public SignInToGitHubPage clickSignInUser() {
-        buttonSignIn.click();
-        logger.info("Click buttonSignIn");
-        return this;
-    }
-
     public GitHubUserPage fillFormAddClickButtonSignIn(String userName, String userPassword) {
         fillLoginUser(userName);
         fillPasswordUser(userPassword);

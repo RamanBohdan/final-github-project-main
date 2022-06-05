@@ -1,21 +1,16 @@
 package com.github.RamanBohdan.ui.steps;
 
-import com.github.RamanBohdan.ui.empty.User;
 import com.github.RamanBohdan.ui.pageobjects.CreateNewGitHubRepository;
-import com.github.RamanBohdan.ui.pageobjects.GitHubHomePage;
-import com.github.RamanBohdan.ui.utils.UserCreator;
+import com.github.RamanBohdan.ui.pageobjects.GitHubUserRepositoryPage;
 
 public class CreateNewGitRepositoryStep extends CreateNewGitHubRepository {
 
     private static final String nameRepository = "example";
 
     public static void createRepositoryStep() {
-        User user = UserCreator.createUser();
-        new GitHubHomePage().openPage()
-                .clickButtonSingIn()
-                .fillFormAddClickButtonSignIn(user.getUsername(), user.getPassword())
-                .clickUserMenuForRepository().clickButtonAndCreateRepository()
-                .getNewRepository(nameRepository);
+        SignInStep.signInAccountStep();
+         new GitHubUserRepositoryPage()
+                .clickButtonAndCreateRepository().getNewRepository(nameRepository);
     }
 
 }

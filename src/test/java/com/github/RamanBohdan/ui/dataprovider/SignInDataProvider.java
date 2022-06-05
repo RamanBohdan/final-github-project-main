@@ -7,7 +7,7 @@ public class SignInDataProvider extends AbstractPage {
 
     @DataProvider(name = "loginInCorrectUserName")
     public Object[][] testProvideLoginInCorrectUserName() {
-        return new Object[][]{{"100"}, {"-1000"}, {"Hello"}, {"Boss"}, {"$#@!"}};
+        return new Object[][]{{"100"}, {"-AQdd5"}, {"Hello"}, {"Boss"}, {"$#@!"}};
     }
 
     @DataProvider(name = "loginInCorrectUserPassword")

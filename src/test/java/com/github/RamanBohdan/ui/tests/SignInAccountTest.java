@@ -10,13 +10,15 @@ public class SignInAccountTest extends AbstractTest {
 
     private static final String userName = "RamanBohdan";
     private static final String userPassword = "wmckJiMqCZ1";
-    SignInStep sign;
 
     @Test(dataProvider = "loginInCorrectUserName", dataProviderClass = SignInDataProvider.class)
-    public void testProvideLoginInCorrectUserName(String userName, String userPassword) {
-        SignInStep.signInAccountWithDataProviderStep();
+    public void testProvideLoginInCorrectUserName(String userPassword) {
+        GitHubUserPage userPage = new GitHubHomePage()
+                .openPage()
+                .clickButtonSingIn()
+                .fillFormAddClickButtonSignIn(userName, userPassword);
 
-        Assert.assertEquals(sign.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(userPage.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
     }
 
     @Test(dataProvider = "loginInCorrectUserPassword", dataProviderClass = SignInDataProvider.class)
