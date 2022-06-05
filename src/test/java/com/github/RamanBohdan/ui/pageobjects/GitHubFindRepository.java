@@ -29,14 +29,14 @@ public class GitHubFindRepository extends AbstractPage {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
         return name;
-    }
+    } // TODO: 06.06.2022
 
     public boolean isAnyResultContainsRepositoryNameFalse(String repository) {
         List<String> searchInResult = chooseUserRepositoryFalse(repository);
         logger.info("isAnyResultContainsRepositoryName");
         logger.info(searchInResult.stream().anyMatch(repo -> repo.contains(repository)));
         return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
-    }
+    }// TODO: 06.06.2022
 
     public boolean isAnyResultContainsRepositoryName(String repository) {
         List<String> searchInResult = chooseUserRepository(repository);
