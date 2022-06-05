@@ -6,17 +6,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.github.RamanBohdan.ui.pageobjects.*;
 
-public class SignInAndSearchUserTest extends AbstractTest {
+public class SignInAccountTest extends AbstractTest {
 
     private static final String userName = "RamanBohdan";
     private static final String userPassword = "wmckJiMqCZ1";
+    SignInStep sign;
 
-   @Test(dataProvider = "loginInCorrectUserName", dataProviderClass = SignInDataProvider.class)
+    @Test(dataProvider = "loginInCorrectUserName", dataProviderClass = SignInDataProvider.class)
     public void testProvideLoginInCorrectUserName(String userName, String userPassword) {
-       SignInStep sign = new SignInStep();
-       SignInStep.SignInAccountWithDataProviderStep();
+        SignInStep.signInAccountWithDataProviderStep();
 
-       Assert.assertEquals(sign.getTitleErrorMassage(),GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(sign.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
     }
 
     @Test(dataProvider = "loginInCorrectUserPassword", dataProviderClass = SignInDataProvider.class)
@@ -26,7 +26,7 @@ public class SignInAndSearchUserTest extends AbstractTest {
                 .clickButtonSingIn()
                 .fillFormAddClickButtonSignIn(userName, userPassword);
 
-        Assert.assertEquals(userPage.getTitleErrorMassage(),GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(userPage.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
     }
 
 }

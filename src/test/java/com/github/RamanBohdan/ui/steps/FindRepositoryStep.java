@@ -3,12 +3,13 @@ package com.github.RamanBohdan.ui.steps;
 import com.github.RamanBohdan.ui.pageobjects.GitHubFindRepository;
 import com.github.RamanBohdan.ui.pageobjects.GitHubHomePage;
 
-public class FindRepository extends GitHubFindRepository{
+public class FindRepositoryStep extends GitHubFindRepository {
 
     private static final String repository = "RamanBohdan/final-github-project-main";
-    FindRepository findRepository= new FindRepository();
-    public static void FindRepositoryWithDataProviderStep() {
+
+    public static void findRepositoryWithDataProviderStep() {
         new GitHubHomePage().openPage()
-                .getChooseUserRepository().isAnyResultContainsRepositoryName(repository);
+                .getChooseUserRepository()
+                .isAnyResultContainsRepositoryName(repository);
     }
-        }
+}

@@ -6,7 +6,7 @@ import com.github.RamanBohdan.ui.pageobjects.SignInToGitHubPage;
 import com.github.RamanBohdan.ui.utils.UserCreator;
 
 public class SignInStep extends SignInToGitHubPage {
-    public static void SignInAccountStep() {
+    public static void signInAccountStep() {
         User user = UserCreator.createUser();
         new GitHubHomePage().openPage()
                 .clickButtonSingIn()
@@ -14,10 +14,11 @@ public class SignInStep extends SignInToGitHubPage {
                 .clickUserMenuForRepository();
     }
 
-    public static void SignInAccountWithDataProviderStep() {
+    public static void signInAccountWithDataProviderStep() {
         User user = UserCreator.createUser();
         new GitHubHomePage().openPage()
                 .clickButtonSingIn()
                 .fillFormAddClickButtonSignIn(user.getUsername(), user.getPassword());
     }
+
 }
