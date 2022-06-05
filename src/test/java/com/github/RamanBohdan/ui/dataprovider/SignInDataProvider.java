@@ -15,4 +15,8 @@ public class SignInDataProvider extends AbstractPage {
         return new Object[][]{{"1234567890"}, {"password"}, {"HelloWord"}, {"*******"}, {"$#@!"}};
     }
 
+    @DataProvider(name = "searchInCorrectUserRepo")
+    public Object[][] testSearchInCorrectUserRepo() {
+        return new Object[][]{{"RamanBohdan/1234567890"}, {"RamanBohdan/password"}, {"RamanBohdan/HelloWord"}, {"RamanBohdan/*******"}, {"RamanBohdan/$#@!"}};
+    }
 }

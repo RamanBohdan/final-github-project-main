@@ -14,14 +14,28 @@ public class GitHubFindRepository extends AbstractPage {
     @FindBy(xpath = "//input[@id='your-repos-filter']")
     private WebElement searchRepository;
 
-
     private List<String> chooseUserRepository(String repository) {
-        waitForVisibilityOfElement(searchRepository);
-        String nameInResult = "//a[@href='/RamanBohdan/example']";
+        waitForVisibilityOfElement(searchUserRepository);
+        String nameInResult = "//a[@href='/RamanBohdan/final-github-project-main']";
         List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
         return name;
+    }
+    private List<String> chooseUserRepositoryFalse(String repository) {
+        waitForVisibilityOfElement(searchUserRepository);
+        String nameInResult = "//li[@class='repo-list-item hx_hit-repo d-flex flex-justify-start py-4 public source']";
+        List<String> name = driver.findElements(By.xpath(nameInResult)).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        return name;
+    }
+
+    public boolean isAnyResultContainsRepositoryNameFalse(String repository) {
+        List<String> searchInResult = chooseUserRepositoryFalse(repository);
+        logger.info("isAnyResultContainsRepositoryName");
+        logger.info(searchInResult.stream().anyMatch(repo -> repo.contains(repository)));
+        return searchInResult.stream().anyMatch(repo -> repo.contains(repository));
     }
 
     public boolean isAnyResultContainsRepositoryName(String repository) {

@@ -1,6 +1,7 @@
 package com.github.RamanBohdan.ui.tests;
 
 import com.github.RamanBohdan.ui.dataprovider.SignInDataProvider;
+import com.github.RamanBohdan.ui.steps.FindRepositoryStep;
 import com.github.RamanBohdan.ui.steps.SignInStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -31,4 +32,14 @@ public class SignInAccountTest extends AbstractTest {
         Assert.assertEquals(userPage.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
     }
 
+    @Test(dataProvider = "searchInCorrectUserRepo", dataProviderClass = SignInDataProvider.class)
+   public void testSearchInCorrectUserRepo(String repo) {
+
+        FindRepositoryStep findRepository = new FindRepositoryStep();
+        FindRepositoryStep.findRepositoryBeforeLoginFalse(repo);
+
+        Assert.assertFalse(findRepository.isAnyResultContainsRepositoryNameFalse(repo));
+
+    }
+    // TODO: 06.06.2022  
 }

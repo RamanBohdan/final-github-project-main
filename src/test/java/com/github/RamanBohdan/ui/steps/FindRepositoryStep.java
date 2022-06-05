@@ -15,6 +15,12 @@ public class FindRepositoryStep extends GitHubFindRepository {
                 .isAnyResultContainsRepositoryName(repository);
     }
 
+    public static void findRepositoryBeforeLoginFalse(String repo) {
+        new GitHubHomePage().openPage()
+                .getChooseUserRepository()
+                .isAnyResultContainsRepositoryName(repo);
+    }
+
     public static void findRepositoryAfterCreateUserStep() {
         SignInStep.signInAccountStep();
         new GitHubUserRepositoryPage()
