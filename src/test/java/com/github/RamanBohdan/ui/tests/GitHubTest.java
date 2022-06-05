@@ -12,6 +12,13 @@ public class GitHubTest extends AbstractTest {
     private static final String nameRepository = "example";
 
     @Test(priority = 1)
+    public void testSignInUserZero() {
+        GitHubFindRepository userPage = new GitHubHomePage().openPage().getChooseUserRepository();
+
+        Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
+    }
+
+    @Test(priority = 1)
     public void testSignInUser() {
         SignInStep sign = new SignInStep();
         SignInStep.SignInAccountStep();
@@ -29,13 +36,11 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 3)
     public void testChooseUserRepository() {
-        GitHubFindRepository userPage = new GitHubHomePage()
-                .openPage()
-                .getChooseUserRepository();
+        CreateNewGitHubRepository createNewGitHubRepository = new CreateNewGitHubRepository();
+        CreateNewGitRepositoryStep.CreateRepositoryStep();
 
-        Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
+        Assert.assertTrue(createNewGitHubRepository.isAnyResultContainsRepositoryName(repository));
     }
-
    /* @Test(priority = 4)
     public void testDeleteUserRepository() throws InterruptedException {
         DeleteGitHubRepository userPage = new GitHubHomePage().openPage()
@@ -48,6 +53,6 @@ public class GitHubTest extends AbstractTest {
 
         Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(nameRepository));
     }
-    */ // TODO: 04.06.2022  
+    */ // TODO
 
 }

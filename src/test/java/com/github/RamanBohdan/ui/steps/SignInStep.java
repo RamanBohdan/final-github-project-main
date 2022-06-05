@@ -14,4 +14,10 @@ public class SignInStep extends SignInToGitHubPage {
                 .clickUserMenuForRepository();
     }
 
+    public static void SignInAccountWithDataProviderStep() {
+        User user = UserCreator.createUser();
+        new GitHubHomePage().openPage()
+                .clickButtonSingIn()
+                .fillFormAddClickButtonSignIn(user.getUsername(), user.getPassword());
+    }
 }

@@ -7,12 +7,16 @@ public class SignInToGitHubPage extends AbstractPage{
 
     @FindBy(xpath = "//input[@name='login']")
     private WebElement inputLogin;
-    @FindBy(xpath = "//input[@name='password']")
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement inputPassword;
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement buttonSignIn;
     @FindBy(xpath = "//span[@itemprop='additionalName']")
     private WebElement titleAvatarUser;
+    @FindBy(xpath = "//div[@class='px-2']")
+    private WebElement titleErrorMassageUser;
+    @FindBy(xpath = "//div[@id='login']")
+    private WebElement titleErrorMassagePassword;
 
     public String getTitleAvatarUser() {
         return titleAvatarUser.getText();
@@ -45,4 +49,13 @@ public class SignInToGitHubPage extends AbstractPage{
         logger.info("Click buttonSignIn");
         return new GitHubUserPage();
     }
+
+    public String getTitleErrorMassage(){
+        return titleErrorMassageUser.getText();
+    }
+
+    public String getTitleErrorMassagePassword(){
+        return titleErrorMassagePassword.getText();
+    }
 }
+

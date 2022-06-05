@@ -1,13 +1,12 @@
 package com.github.RamanBohdan.ui.empty;
 
 public class User {
-    private static String username = "RamanBohdan";
-    private static String password = "wmckJiMqCZ1";
-
+    private String username;
+    private String password;
 
     public User(String username, String password) {
-        User.username = username;
-        User.password = password;
+        this.username = username;
+        this.password = password;
     }
 
     public String getUsername() {
@@ -15,7 +14,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        User.username = username;
+        this.username = username;
     }
 
     public String getPassword() {
@@ -23,7 +22,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        User.password = password;
+        this.password = password;
     }
 
     @Override
