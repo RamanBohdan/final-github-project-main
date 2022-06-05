@@ -10,17 +10,19 @@ public class GitHubTest extends AbstractTest {
 
     private static final String repository = "RamanBohdan/final-github-project-main";
     private static final String nameRepository = "example";
+    FindRepository findRepository;
+    SignInStep sign;
+    CreateNewGitHubRepository createNewGitHubRepository;
 
     @Test(priority = 1)
     public void testSignInUserZero() {
-        GitHubFindRepository userPage = new GitHubHomePage().openPage().getChooseUserRepository();
+        FindRepository.FindRepositoryWithDataProviderStep();
 
-        Assert.assertTrue(userPage.isAnyResultContainsRepositoryName(repository));
+        Assert.assertTrue(findRepository.isAnyResultContainsRepositoryName(repository));
     }
 
     @Test(priority = 1)
     public void testSignInUser() {
-        SignInStep sign = new SignInStep();
         SignInStep.SignInAccountStep();
 
         Assert.assertEquals(sign.getTitleAvatarUser(), GitHubUserPage.USER_NAME);
@@ -28,7 +30,6 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 2)
     public void testSignInUserAndCreateNewRepository() {
-        CreateNewGitHubRepository createNewGitHubRepository = new CreateNewGitHubRepository();
         CreateNewGitRepositoryStep.CreateRepositoryStep();
 
         Assert.assertTrue(createNewGitHubRepository.isAnyResultContainsRepositoryName(nameRepository));
@@ -36,7 +37,6 @@ public class GitHubTest extends AbstractTest {
 
     @Test(priority = 3)
     public void testChooseUserRepository() {
-        CreateNewGitHubRepository createNewGitHubRepository = new CreateNewGitHubRepository();
         CreateNewGitRepositoryStep.CreateRepositoryStep();
 
         Assert.assertTrue(createNewGitHubRepository.isAnyResultContainsRepositoryName(repository));

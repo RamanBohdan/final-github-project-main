@@ -8,6 +8,9 @@ import com.github.RamanBohdan.ui.pageobjects.*;
 
 public class SignInAndSearchUserTest extends AbstractTest {
 
+    private static final String userName = "RamanBohdan";
+    private static final String userPassword = "wmckJiMqCZ1";
+
    @Test(dataProvider = "loginInCorrectUserName", dataProviderClass = SignInDataProvider.class)
     public void testProvideLoginInCorrectUserName(String userName, String userPassword) {
        SignInStep sign = new SignInStep();
@@ -17,11 +20,13 @@ public class SignInAndSearchUserTest extends AbstractTest {
     }
 
     @Test(dataProvider = "loginInCorrectUserPassword", dataProviderClass = SignInDataProvider.class)
-    public void testProvideLoginInCorrectUserPassword(String userPassword) {
-        SignInStep sign = new SignInStep();
-        SignInStep.SignInAccountWithDataProviderStep();
+    public void testProvideLoginInCorrectUserPassword(String userName) {
+        GitHubUserPage userPage = new GitHubHomePage()
+                .openPage()
+                .clickButtonSingIn()
+                .fillFormAddClickButtonSignIn(userName, userPassword);
 
-        Assert.assertEquals(sign.getTitleErrorMassage(),GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(userPage.getTitleErrorMassage(),GitHubUserPage.ERROR_MASSAGE);
     }
 
 }
