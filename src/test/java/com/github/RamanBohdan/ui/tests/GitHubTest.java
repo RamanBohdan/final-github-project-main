@@ -1,6 +1,7 @@
 package com.github.RamanBohdan.ui.tests;
 
 import com.github.RamanBohdan.ui.steps.CreateNewGitRepositoryStep;
+import com.github.RamanBohdan.ui.steps.FindRepository;
 import com.github.RamanBohdan.ui.steps.SignInStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;

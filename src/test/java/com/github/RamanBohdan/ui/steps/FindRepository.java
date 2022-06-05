@@ -1,4 +1,4 @@
-package com.github.RamanBohdan.ui.tests;
+package com.github.RamanBohdan.ui.steps;
 
 import com.github.RamanBohdan.ui.pageobjects.GitHubFindRepository;
 import com.github.RamanBohdan.ui.pageobjects.GitHubHomePage;
