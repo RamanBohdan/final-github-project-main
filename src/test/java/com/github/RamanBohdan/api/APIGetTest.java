@@ -15,18 +15,17 @@ import static org.testng.Assert.assertEquals;
 public class APIGetTest extends AbstractTest{
 
     @Test
-    public void testApiGetTestingStatusCode() {
+    public void testApiGetStatusCode() {
         String url = "https://github.com/RamanBohdan";
-        myClient.sendGet(url);
+        httpClient.sendGet(url);
 
-        assertEquals(myClient.getStatusCode(), 200);
+        assertEquals(httpClient.getStatusCode(), 200);
     }
 
     @Test
-    public void testApiGetTestingBookingId() throws IOException {
-        String url = "https://github.com/RamanBohdan";
+    public void testApiGetUserLocation() throws IOException {
+        String url = "https://github.com/RamanBohdan/";
         String location = "Gomel";
-        int value = 168;
         HttpUriRequest request = new HttpGet(url);
 
         CloseableHttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
@@ -35,4 +34,15 @@ public class APIGetTest extends AbstractTest{
         Assert.assertTrue(responseBody.contains(location));
     }
 
+    @Test
+    public void testApiGetTestingBookingId() throws IOException {
+        String url = "https://api.github.com/repos/RamanBohdan/final-github-project-main";
+        String fullNameRepository = "RamanBohdan/final-github-project-main";
+        HttpUriRequest request = new HttpGet(url);
+
+        CloseableHttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        String responseBody = EntityUtils.toString(httpResponse.getEntity());
+
+        Assert.assertTrue(responseBody.contains(fullNameRepository));
+    }
 }

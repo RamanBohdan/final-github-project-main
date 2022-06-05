@@ -3,10 +3,10 @@ package com.github.RamanBohdan.api;
 import org.testng.annotations.BeforeClass;
 
 public class AbstractTest {
-    CustomClient myClient;
+    CustomClient httpClient;
 
     @BeforeClass
     public void getClient() {
-        myClient = new CustomClient();
+        httpClient = new CustomClient();
     }
 }
