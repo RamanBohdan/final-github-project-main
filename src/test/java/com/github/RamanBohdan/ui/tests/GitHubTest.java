@@ -1,6 +1,7 @@
 package com.github.RamanBohdan.ui.tests;
 
 import com.github.RamanBohdan.ui.steps.CreateNewGitRepositoryStep;
+import com.github.RamanBohdan.ui.steps.DeleteRepositoryStep;
 import com.github.RamanBohdan.ui.steps.FindRepositoryStep;
 import com.github.RamanBohdan.ui.steps.SignInStep;
 import org.testng.Assert;
@@ -15,6 +16,8 @@ public class GitHubTest extends AbstractTest {
         SignInStep.signInAccountStep();
 
         Assert.assertEquals(sign.getTitleAvatarUser(), GitHubUserPage.USER_NAME);
+        Assert.assertEquals(sign.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(sign.getTitleErrorMassagePassword(), GitHubUserPage.ERROR_MASSAGE_PASSWORD);
     }
 
     @Test(priority = 2)
@@ -40,17 +43,19 @@ public class GitHubTest extends AbstractTest {
 
         Assert.assertTrue(findRepository.isAnyResultContainsRepositoryName(NAME_REPOSITORY));
     }
+    // TODO: 07.06.2022  
+    
 
- /*  @Test(priority = 5)
+ @Test(priority = 5)
     public void testDeleteUserRepository() {
         DeleteRepositoryStep deleteRepository = new DeleteRepositoryStep();
         DeleteRepositoryStep.signInAccountAndDeleteRepositoryStep();
 
         Assert.assertTrue(deleteRepository.isAnyResultContainsRepositoryName(NAME_REPOSITORY));
     }
+    // TODO: 07.06.2022  
 
-  */
-    // TODO
+
 
 
 }

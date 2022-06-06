@@ -2,7 +2,6 @@ package com.github.RamanBohdan.ui.tests;
 
 import com.github.RamanBohdan.ui.dataprovider.SignInDataProvider;
 import com.github.RamanBohdan.ui.steps.FindRepositoryStep;
-import com.github.RamanBohdan.ui.steps.SignInStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.github.RamanBohdan.ui.pageobjects.*;
@@ -19,7 +18,7 @@ public class SignInAccountTest extends AbstractTest {
                 .clickButtonSingIn()
                 .fillFormAddClickButtonSignIn(userName, userPassword);
 
-        Assert.assertEquals(userPage.getTitleErrorMassage(), GitHubUserPage.ERROR_MASSAGE);
+        Assert.assertEquals(userPage.getTitleErrorMassagePassword(), GitHubUserPage.ERROR_MASSAGE_PASSWORD);
     }
 
     @Test(dataProvider = "loginInCorrectUserPassword", dataProviderClass = SignInDataProvider.class)
@@ -41,5 +40,5 @@ public class SignInAccountTest extends AbstractTest {
         Assert.assertFalse(findRepository.isAnyResultContainsRepositoryNameFalse(repo));
 
     }
-    // TODO: 06.06.2022  
+    // TODO: 07.06.2022
 }

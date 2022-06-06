@@ -24,12 +24,12 @@ public class DeleteGitHubRepository extends AbstractPage {
         return this;
     }
 
-    public DeleteGitHubRepository selectFindRepositoryName() {
+    public GitHubUserPage selectFindRepositoryName() {
         String nameRepository = "RamanBohdan/example";
         buttonDeleteRepository.click();
         inputNameRepositoryFromDelete.sendKeys(nameRepository);
         buttonAcceptDeleteRepository.click();
-        return this;
+        return new GitHubUserPage();
     }
 
     private List<String> chooseUserRepository(String repository) {
